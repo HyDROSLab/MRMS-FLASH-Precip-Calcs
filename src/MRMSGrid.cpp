@@ -14,8 +14,8 @@ FloatGrid *ReadFloatMRMSGrid(char *file, FloatGrid *grid) {
   }
   
   short int *binary_data = 0;
-  float nw_lon, nw_lat;
-  float dx;//, dy;
+  double nw_lon, nw_lat;
+  double dx;//, dy;
   
   MRMSHeader2D header;
   if (gzread(fileH, &header, sizeof(MRMSHeader2D)) != sizeof(MRMSHeader2D)) {
@@ -80,10 +80,10 @@ FloatGrid *ReadFloatMRMSGrid(char *file, FloatGrid *grid) {
    }
    }*/
   
-  dx = header.dx/float(header.dxy_scale);
+  dx = header.dx/double(header.dxy_scale);
   //dy = header.dy/float(header.dxy_scale);
-  nw_lon = (float)header.nw_lon/(float)header.map_scale - (dx / 2.0);
-  nw_lat = (float)header.nw_lat/(float)header.map_scale + (dx / 2.0);
+  nw_lon = (double)header.nw_lon/(float)header.map_scale - (dx / 2.0);
+  nw_lat = (double)header.nw_lat/(float)header.map_scale + (dx / 2.0);
   if (!grid) {
     grid = new FloatGrid();
     grid->numCols = header.nx;

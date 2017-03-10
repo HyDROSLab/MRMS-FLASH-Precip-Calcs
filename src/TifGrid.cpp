@@ -175,7 +175,7 @@ void WriteFloatTifGrid(const char *file, FloatGrid *grid) {
   
   TIFFSetField(tif, TIFFTAG_IMAGEWIDTH, grid->numCols);
   TIFFSetField(tif, TIFFTAG_IMAGELENGTH, grid->numRows);
-  TIFFSetField(tif, TIFFTAG_ROWSPERSTRIP,  20);
+  //TIFFSetField(tif, TIFFTAG_ROWSPERSTRIP,  20);
   char buf[100];
   sprintf(buf, "%f", grid->noData);
   TIFFSetField(tif, TIFFTAG_GDAL_NODATA, buf);

@@ -20,7 +20,7 @@ class Grid {
 		long numCols;
 		long numRows;
 		BoundingBox extent; 
-		float cellSize;
+		double cellSize;
 
 		bool IsSpatialMatch(const Grid *testGrid) {
 			return ((numCols == testGrid->numCols) && (numRows == testGrid->numRows)
