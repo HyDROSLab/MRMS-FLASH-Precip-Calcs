@@ -82,8 +82,8 @@ FloatGrid *ReadFloatMRMSGrid(char *file, FloatGrid *grid) {
   
   dx = header.dx/float(header.dxy_scale);
   //dy = header.dy/float(header.dxy_scale);
-  nw_lon = (float)header.nw_lon/(float)header.map_scale + (dx / 2.0);
-  nw_lat = (float)header.nw_lat/(float)header.map_scale - (dx / 2.0);
+  nw_lon = (float)header.nw_lon/(float)header.map_scale - (dx / 2.0);
+  nw_lat = (float)header.nw_lat/(float)header.map_scale + (dx / 2.0);
   if (!grid) {
     grid = new FloatGrid();
     grid->numCols = header.nx;
